@@ -1,0 +1,792 @@
+:root {
+    --background: #111111;
+    --surface: #181818;
+    --text: #ffffff;
+    --muted-text: #aaaaaa;
+    --border: #333333;
+    --accent: #f5b642;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background);
+    color: var(--text);
+}
+
+header {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 20px;
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--background);
+    border-bottom: 1px solid var(--border);
+}
+.nav-container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 18px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav-logo {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+.nav-links a {
+    color: var(--muted-text);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+.menu-toggle {
+    display: none;
+    width: 45px;
+    height: 45px;
+    padding: 0;
+
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--text);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+section {
+    padding: 80px 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+section h2 {
+    font-size: 32px;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+footer {
+    padding: 30px;
+    text-align: center;
+    border-top: 1px solid #333333;
+}
+.hero-content {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+.hero-label {
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+.hero-description {
+    max-width: 650px;
+    margin: 20px auto;
+    line-height: 1.7;
+}
+.hero-buttons {
+    margin-top: 30px;
+}
+.button {
+    display: inline-block;
+    padding: 12px 24px;
+    margin: 5px;
+    text-decoration: none;
+    border-radius: 6px;
+}
+.primary-button {
+    background-color: #ffffff;
+    color: #111111;
+}
+.secondary-button {
+    border: 1px solid var(--accent);
+    color: var(--accent);
+}
+.primary-button:hover {
+    opacity: 0.8;
+}
+
+.secondary-button:hover {
+    background-color: var(--accent);
+    color: var(--background);
+}
+.profile-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 25px;
+}
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+.skill-card {
+    padding: 30px;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+}
+
+.skill-card h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+
+.skill-card p {
+    margin: 0;
+    color: var(--muted-text);
+    line-height: 1.7;
+}
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+.project-card {
+    padding: 25px;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+}
+.project-card h3 {
+    margin-top: 0;
+}
+.project-card p {
+    line-height: 1.6;
+}
+.education-card {
+    padding: 25px;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+.education-card h3 {
+    margin-top: 0;
+}
+.education-institute {
+    font-size: 18px;
+}
+.academic-performance {
+    padding: 25px;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+.academic-performance h3 {
+    margin-top: 0;
+}
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+.contact-card {
+    padding: 25px;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+.contact-card h3 {
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+.contact-card p {
+    line-height: 1.6;
+}
+.contact-card a {
+    color: var(--accent);
+    text-decoration: none;
+}
+.contact-card a:hover {
+    text-decoration: underline;
+}
+@media (max-width: 768px) {
+.nav-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0;
+}
+.menu-toggle {
+    display: flex;
+}
+
+.nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    gap: 15px;
+    padding-top: 20px;
+}
+
+.nav-links.open {
+    display: flex;
+}
+
+.nav-links a {
+        font-size: 14px;
+    }
+
+.contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+p {
+    line-height: 1.7;
+}
+.hero-description,
+.skill-card p,
+.project-card p,
+.education-card p,
+.academic-performance p {
+    color: var(--muted-text);
+}
+/*  - Hero Section */
+
+#home {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    max-width: 850px;
+}
+
+.hero-content h2 {
+    font-size: 56px;
+    line-height: 1.1;
+    margin: 10px 0 20px;
+}
+
+.hero-label {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .hero-content h2 {
+        font-size: 40px;
+    }
+/* Step 20 - Mobile Improvements */
+
+#home {
+    min-height: 75vh;
+}
+
+.profile-image {
+    width: 120px;
+    height: 120px;
+}
+
+.hero-description {
+    font-size: 15px;
+}
+
+.button {
+    padding: 11px 20px;
+}
+
+section h2 {
+    font-size: 28px;
+}
+
+.skill-card,
+.project-card,
+.education-card,
+.academic-performance,
+.contact-card {
+    padding: 22px;
+}
+}
+/* Step 15 - About Section */
+
+.about-content {
+    max-width: 750px;
+}
+
+.about-content p {
+    color: var(--muted-text);
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+/* Step 16 - Skills Section */
+
+#skills {
+    border-top: 1px solid var(--border);
+}
+
+.skills-grid {
+    margin-top: 10px;
+}
+/* Step 17 - Projects */
+
+.project-empty {
+    text-align: center;
+    padding: 45px 30px;
+}
+
+.project-empty h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.project-status {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 16px;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    border-radius: 20px;
+    font-size: 14px;
+}
+/* Step 18 - Footer */
+
+footer {
+    margin-top: 60px;
+    padding: 50px 20px 25px;
+    border-top: 1px solid var(--border);
+}
+
+.footer-content {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.footer-brand h3 {
+    margin: 0 0 8px;
+    font-size: 20px;
+}
+
+.footer-brand p {
+    margin: 0;
+    color: var(--muted-text);
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.footer-links a {
+    color: var(--muted-text);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: var(--accent);
+}
+
+.footer-bottom {
+    max-width: 1100px;
+    margin: 35px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: var(--muted-text);
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links {
+        justify-content: center;
+    }
+
+}
+/* Step 21 - Animations */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content {
+    animation: fadeUp 0.8s ease-out;
+}
+
+.skill-card,
+.project-card,
+.education-card,
+.academic-performance,
+.contact-card {
+    animation: fadeUp 0.7s ease-out;
+}
+
+.navbar {
+    animation: fadeDown 0.6s ease-out;
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.button {
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+}
+/* Step 22 - Active Navigation */
+
+.nav-links a.active {
+    color: var(--accent);
+}
+/* Step 23 - Education */
+
+.education-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 25px;
+}
+
+.education-year {
+    color: var(--accent);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.education-details {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+}
+
+.education-details p {
+    margin: 0;
+    color: var(--muted-text);
+}
+
+.semester-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.semester-item {
+    padding: 20px;
+    background-color: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.semester-item span {
+    display: block;
+    color: var(--muted-text);
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.semester-item strong {
+    color: var(--accent);
+    font-size: 18px;
+}
+
+@media (max-width: 768px) {
+
+    .education-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .semester-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+/* ========================================
+   STEP 25 - CERTIFICATE SLIDER
+======================================== */
+
+.certificate-slider {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.certificate-track {
+    display: flex;
+    gap: 25px;
+    width: max-content;
+
+    animation: certificateScroll 18s linear infinite;
+}
+
+.certificate-slide {
+    width: 420px;
+    flex-shrink: 0;
+
+    background-color: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.certificate-slide:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+}
+
+
+/* Certificate Image */
+
+.certificate-slide img {
+    width: 100%;
+    height: 250px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* Certificate Information */
+
+.certificate-info {
+    padding: 22px;
+}
+
+.certificate-info h3 {
+    margin: 0 0 10px;
+
+    font-size: 19px;
+}
+
+.certificate-info p {
+    margin: 0 0 8px;
+
+    color: var(--muted-text);
+}
+
+.certificate-info span {
+    color: var(--accent);
+
+    font-size: 14px;
+}
+
+
+/* ========================================
+   RIGHT → LEFT ANIMATION
+======================================== */
+
+@keyframes certificateScroll {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-50% - 12.5px));
+    }
+
+}
+
+
+/* ========================================
+   PAUSE WHEN MOUSE IS ON SLIDER
+======================================== */
+
+.certificate-slider:hover .certificate-track {
+    animation-play-state: paused;
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+
+    .certificate-slide {
+        width: 300px;
+    }
+
+    .certificate-slide img {
+        height: 190px;
+    }
+
+}
+/* Step 26 - Certificate Full View */
+
+.certificate-slide {
+    cursor: pointer;
+}
+
+.certificate-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.92);
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+.certificate-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+.certificate-modal img {
+    max-width: 95vw;
+    max-height: 90vh;
+
+    object-fit: contain;
+
+    border-radius: 8px;
+}
+
+.certificate-close {
+    position: absolute;
+
+    top: 20px;
+    right: 25px;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: var(--surface);
+    color: var(--text);
+
+    font-size: 30px;
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+.certificate-close:hover {
+    background-color: var(--accent);
+    color: var(--background);
+}
