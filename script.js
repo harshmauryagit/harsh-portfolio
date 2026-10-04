@@ -78,4 +78,4 @@ const sectionObserver = new IntersectionObserver(
 
 sections.forEach(function(section) {
     sectionObserver.observe(section);
-});KO
+});
